@@ -108,7 +108,14 @@
         </div>
         
         <div class="flower-section" id="flowerSection">
-            <!-- Зображення будуть додані JS -->
+            <div class="flower_l1"> 
+                <img class="img_fl_1" src="./flower_1.jpg" alt="image">
+                <img class="img_fl_1" src="./flower_2.jpg" alt="image">
+            </div>
+            <div class="flower_l2"> 
+                <img class="img_fl_1" src="./flower_3.jpg" alt="image">
+                <img class="img_fl_1" src="./flower_4.jpg" alt="image">
+            </div>
         </div>
 
         <div class="text-section">
@@ -118,14 +125,6 @@
     </div>
 
     <script>
-        // Додавання квітів та серць
-        const flowerSection = document.getElementById('flowerSection');
-        const flowers = [
-            'flower_1.jpg',
-            'flower_2.jpg',
-            'flower_3.jpg',
-            'flower_4.jpg'
-        ];
 
         flowers.forEach(flower => {
             const img = document.createElement('img');
