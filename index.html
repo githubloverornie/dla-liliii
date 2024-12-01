@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рожевий Квітковий Світ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFF0F5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 192, 203, 0.3);
+        }
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            background-color: #FFB6C1;
+            color: white;
+            animation: headerAnimation 3s infinite alternate;
+        }
+        .flower-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 30px 0;
+        }
+        .flower-img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 15px;
+            transition: transform 0.5s ease;
+        }
+        .flower-img:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+        .heart {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            background-color: #FF69B4;
+            transform: rotate(45deg);
+            animation: heartFloat 2s infinite;
+        }
+        .text-section {
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        @keyframes headerAnimation {
+            0% { background-color: #FFB6C1; }
+            50% { background-color: #FF69B4; }
+            100% { background-color: #FFC0CB; }
+        }
+
+        @keyframes heartFloat {
+            0%, 100% { top: 10%; }
+            50% { top: 90%; }
+        }
+
+        @media screen and (max-width: 1200px) {
+            .container { max-width: 1100px; }
+        }
+        @media screen and (max-width: 1190px) {
+            .container { max-width: 1000px; }
+        }
+        @media screen and (max-width: 800px) {
+            .flower-img { width: 200px; height: 200px; }
+        }
+        @media screen and (max-width: 550px) {
+            .flower-img { width: 150px; height: 150px; }
+        }
+        @media screen and (max-width: 480px) {
+            .header { font-size: 0.9em; }
+            .text-section { padding: 15px; }
+        }
+        @media screen and (max-width: 440px) {
+            .flower-img { width: 120px; height: 120px; }
+        }
+        @media screen and (max-width: 360px) {
+            .container { max-width: 320px; }
+            .flower-img { width: 100px; height: 100px; }
+        }
+        @media screen and (max-width: 320px) {
+            .container { max-width: 300px; }
+            .header { font-size: 0.8em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌸 Рожевий Квітковий Світ 🌺</h1>
+        </div>
+        
+        <div class="flower-section" id="flowerSection">
+            <!-- Зображення будуть додані JS -->
+        </div>
+
+        <div class="text-section">
+            <h2>Про наш рожевий світ</h2>
+            <p>Ласкаво просимо до чарівного світу квітів та ніжності! Тут кожен може відчути красу природи та тепло весни. Наш сайт - це місце, де поєднуються колір, емоції та натхнення.</p>
+        </div>
+    </div>
+
+    <script>
+        // Додавання квітів та серць
+        const flowerSection = document.getElementById('flowerSection');
+        const flowers = [
+            'https://example.com/flower1.jpg',
+            'https://example.com/flower2.jpg',
+            'https://example.com/flower3.jpg',
+            'https://example.com/flower4.jpg',
+            'https://example.com/flower5.jpg'
+        ];
+
+        flowers.forEach(flower => {
+            const img = document.createElement('img');
+            img.src = flower;
+            img.classList.add('flower-img');
+            img.alt = 'Квітка';
+            flowerSection.appendChild(img);
+        });
+
+        // Анімація серць
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = `${Math.random() * window.innerWidth}px`;
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 3000);
+        }
+
+        // Створення серць кожні 2 секунди
+        setInterval(createHeart, 2000);
+    </script>
+</body>
+</html>
