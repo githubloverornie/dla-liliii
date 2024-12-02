@@ -60,6 +60,22 @@
             border-radius: 15px;
             margin: 20px 0;
         }
+        .floating-flower {
+        position: fixed;
+        width: 50px;
+        height: 50px;
+        background: radial-gradient(circle at 30% 30%, #FFC0CB, #FF69B4);
+        border-radius: 50% 0;
+        transform: rotate(45deg);
+        opacity: 0.7;
+        animation: flowerFloat 4s infinite;
+        z-index: 1;
+    }
+
+    @keyframes flowerFloat {
+        0%, 100% { top: 10%; }
+        50% { top: 90%; }
+    }
 
         @keyframes headerAnimation {
             0% { background-color: #FFB6C1; }
@@ -125,13 +141,20 @@
     </div>
 
     <script>
-        const flowerSection = document.getElementById('flowerSection');
-        const flowers = [
-            'https://www.pngwing.com/uk/free-png-iwbwp/download'
-            'https://www.pngwing.com/uk/free-png-iwbwp/download'
-        'https://www.pngwing.com/uk/free-png-iwbwp/download'
-        'https://www.pngwing.com/uk/free-png-iwbwp/download'
-        ];
+        function createFloatingFlower() {
+        const flower = document.createElement('div');
+        flower.classList.add('floating-flower');
+        flower.style.left = `${Math.random() * window.innerWidth}px`;
+        flower.style.animationDuration = `${2 + Math.random() * 2}s`;
+        document.body.appendChild(flower);
+
+        setTimeout(() => {
+            flower.remove();
+        }, 4000);
+    }
+
+    // Створення квіточок кожні 2 секунди
+    setInterval(createFloatingFlower, 2000);
 
         flowers.forEach(flower => {
             const img = document.createElement('img');
